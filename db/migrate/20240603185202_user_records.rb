@@ -1,6 +1,6 @@
 class UserRecords < ActiveRecord::Migration[7.0]
   def change
-    create_table :users, id: :uuid, default: -> { 'gen_random_uuid()' }, do |t|
+    create_table :users, id: :uuid, default: -> { 'gen_random_uuid()' } do |t|
       t.string :uuid
       t.string :gender
       t.name :jsonb
@@ -9,7 +9,7 @@ class UserRecords < ActiveRecord::Migration[7.0]
       t.timestamps
     end
 
-    create_table :user_records, id: :uuid, default: -> { 'gen_random_uuid()' }, do |t|
+    create_table :user_records, id: :uuid, default: -> { 'gen_random_uuid()' } do |t|
       t.date :date
       t.integer :male_count
       t.integer :female_count
