@@ -71,4 +71,4 @@ group :test do
 
 end
 
-gem 'redis'
+
