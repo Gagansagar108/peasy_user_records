@@ -3,8 +3,8 @@ class UserRecords < ActiveRecord::Migration[7.0]
     create_table :users, id: :uuid, default: -> { 'gen_random_uuid()' } do |t|
       t.string :uuid
       t.string :gender
-      t.name :jsonb
-      t.location :jsonb
+      t.jsonb :name
+      t.jsonb :location
       t.integer :age
       t.timestamps
     end
