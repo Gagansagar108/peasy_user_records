@@ -1,0 +1,3 @@
+class UserRecord < ActiveRecord
+        
+end 
