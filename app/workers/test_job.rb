@@ -4,7 +4,7 @@ class TestJob
   
     def perform(args = {})
       # Your background job logic goes here
-      puts "Performing background job with arguments: #{args}"
+      User.create!(uuid: Randon.hex, name: {name: "#{Random.alphanumeric}gagan"} )
   
       # Example: Send an email notification
       # UserMailer.with(user: User.find(args[:user_id])).welcome_email.deliver_now
