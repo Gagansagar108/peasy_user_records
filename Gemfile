@@ -77,3 +77,5 @@ gem "redis-rails"
 
 
 gem "sidekiq"
+
+gem "sidekiq-cron"

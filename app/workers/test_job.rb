@@ -1,4 +1,4 @@
-class MyWorker
+class TestJob
     include Sidekiq::Worker
   
     def perform(args = {})
