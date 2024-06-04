@@ -56,7 +56,7 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  config.cache_store = :redis_store, ‘redis://localhost:6379/0, { expires_in: 1.days }
+  config.cache_store = :redis_store, 'redis://127.0.0.1:6379/0', { expires_in: 1.days }
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -70,10 +70,9 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  Rails.application.configure do
   
-    config.hosts << "the-real-gng.online"
-  end
+  config.hosts << "the-real-gng.online"
+
 
 #   config.cache_store = :redis_store, {
 #   host: 'localhost',
