@@ -1,4 +1,4 @@
 test_job:
-  cron: "*/1 * * * *"
+  cron: "* * * * *"
   class: "TestJob"
   queue: default
