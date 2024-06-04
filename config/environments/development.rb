@@ -70,10 +70,9 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  Rails.application.configure do
   
-    config.hosts << "the-real-gng.online"
-  end
+  config.hosts << "the-real-gng.online"
+
 
 #   config.cache_store = :redis_store, {
 #   host: 'localhost',
