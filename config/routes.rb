@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   require 'sidekiq/web'
+  require 'sidekiq/cron/web'
 
     # mount Sidekiq::Web in your Rails app
   mount Sidekiq::Web => "peasy/sidekiq"
