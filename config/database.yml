@@ -92,9 +92,9 @@ test:
 #
 production:
   <<: *default
-  database: peasy
-  username: tanx
-  password: tanx
-  host: 52.66.178.119
-  port: 5432
+  database: <%= Rails.application.credentials.dig(:database, :name) %>
+  username: <%= Rails.application.credentials.dig(:database, :username) %>
+  password: <%= Rails.application.credentials.dig(:database, :password) %>
+  host: <%= Rails.application.credentials.dig(:database, :host) %>
+  port: <%= Rails.application.credentials.dig(:database, :port) %>
   sslmode: disable
