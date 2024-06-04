@@ -9,4 +9,9 @@ Rails.application.routes.draw do
     resources :user_records
     root to: 'home#index'
   end
+
+  require 'sidekiq/web'
+
+    # mount Sidekiq::Web in your Rails app
+  mount Sidekiq::Web => "peasy/sidekiq"
 end
