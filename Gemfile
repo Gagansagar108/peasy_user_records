@@ -75,3 +75,5 @@ end
 gem "redis-store"
 gem "redis-rails"
 
+
+gem "sidekiq"
