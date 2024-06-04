@@ -1,9 +1,10 @@
+create_user_records_job:
+  cron: "* * * * *"
+  class: "CreateUserRecordsJob"
+  queue: default
+  
 test_job:
   cron: "* * * * *"
   class: "TestJob"
   queue: default
 
-create_user_records_job:
-  cron: "* * * * *"
-  class: "CreateUserRecordsJob"
-  queue: default
