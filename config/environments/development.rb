@@ -73,12 +73,4 @@ Rails.application.configure do
   
   config.hosts << "the-real-gng.online"
 
-
-#   config.cache_store = :redis_store, {
-#   host: 'localhost',
-#   port: 6379,
-#   db: 3,
-#   namespace: 'cache'
-# }
-
 end
