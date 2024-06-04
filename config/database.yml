@@ -95,6 +95,6 @@ production:
   database: peasy
   username: tanx
   password: tanx
-  host: localhost
+  host: 52.66.178.119
   port: 5432
   sslmode: disable
