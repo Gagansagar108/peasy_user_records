@@ -76,6 +76,6 @@ gem "redis-store"
 gem "redis-rails"
 
 
-gem "sidekiq"
+gem 'sidekiq', '~> 6.2'
 
 gem "sidekiq-cron"
