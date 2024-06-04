@@ -79,3 +79,6 @@ gem "redis-rails"
 gem 'sidekiq', '~> 6.2'
 
 gem "sidekiq-cron"
+
+
+gem 'rest-client'
