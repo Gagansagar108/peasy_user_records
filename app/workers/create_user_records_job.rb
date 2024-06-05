@@ -15,7 +15,8 @@ class CreateUserRecordsJob
         params = record.slice(*attributes)
         
         params[:age] = age
-       
+        params[:date_of_entry] = Time.zone.now.to_date
+
         user = User.find_or_initialize_by(uuid: user_uuid)
         
         user.assign_attributes(params)
@@ -23,10 +24,16 @@ class CreateUserRecordsJob
         user.save
       end 
 
-       
+      update_redis_data
     end
 
-    def update_redis_data()
-      users_count = User.select(:id).count
+    def update_redis_data
+      users = User.group(:gender).count
+      
+      redis_keys = {}
+      
+      keys = %w[male female].each{ |gender| redis_keys["#{gender}_users_count"] = users[gender] }
+      
+      Rails.cache.write_multi(redis_keys)
     end 
 end  

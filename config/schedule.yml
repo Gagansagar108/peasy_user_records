@@ -3,6 +3,11 @@ create_user_records_job:
   class: "CreateUserRecordsJob"
   queue: default
   
+update_daily_user_records_stats_job:
+  cron: "* * * * *"
+  class: "UpdateDailyUserRecordsStatsJob"
+  queue: default
+
 test_job:
   cron: "* * * * *"
   class: "TestJob"

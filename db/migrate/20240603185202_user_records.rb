@@ -6,6 +6,7 @@ class UserRecords < ActiveRecord::Migration[7.0]
       t.jsonb :name
       t.jsonb :location
       t.integer :age
+      t.date :date_of_entry
       t.timestamps
     end
 
@@ -21,5 +22,6 @@ class UserRecords < ActiveRecord::Migration[7.0]
     add_index :users, :uuid, unique: true
     add_index :user_records, :date
     add_index :users, :gender
+    add_index :users, :age, where: "(age IS not NULL)"
   end
 end
