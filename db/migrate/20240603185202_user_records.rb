@@ -14,8 +14,8 @@ class UserRecords < ActiveRecord::Migration[7.0]
       t.date :date_of_entry
       t.integer :male_count
       t.integer :female_count
-      t.float :male_avg_age
-      t.float :female_avg_age
+      t.float :male_avg_age, scale: 2
+      t.float :female_avg_age, scale: 2
       t.timestamps
     end 
 

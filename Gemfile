@@ -83,6 +83,6 @@ gem "sidekiq-cron"
 
 gem 'rest-client'
 
-
+gem 'liquid'
 
 gem 'pry'
