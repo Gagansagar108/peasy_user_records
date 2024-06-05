@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   scope '/peasy' do
     resources :users
-    resources :user_records
     root to: 'home#index'
   end
 
