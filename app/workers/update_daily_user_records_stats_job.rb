@@ -3,7 +3,6 @@ class UpdateDailyUserRecordsStatsJob
     sidekiq_options queue: :default
   
     def perform(args = {})
-        
-      end 
+    
     end
 end 
