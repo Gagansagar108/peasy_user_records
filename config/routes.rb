@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   scope '/peasy' do
     resources :users
-    root to: 'home#index'
+    root to: 'users#index'
   end
 
   require 'sidekiq/web'
