@@ -13,7 +13,7 @@ class UpdateDailyUserRecordsStatsJob
     end
 
     def create_daily_records(params)
-       user_record = UserRecords.new(params)
+       user_record = UserRecord.new(params)
        user_record.save!
     end 
 end 
