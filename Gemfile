@@ -82,3 +82,7 @@ gem "sidekiq-cron"
 
 
 gem 'rest-client'
+
+
+
+gem 'pry-debugger-jruby'

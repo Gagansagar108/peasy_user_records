@@ -1,17 +1,16 @@
 class UserRecord < ApplicationRecord
+    
+    has_many :users, class_name: :User, primary_key: :date_of_entry, foreign_key: :date_of_entry
+
     include ActiveModel::Dirty
     
-    define_attribute_methods :male_count, :female_count
+    after_save :do_changes
 
-    after_save :update_changes
 
-    private
-  
-    def update_changes
-      return unless changed?
-      binding.pry
-      changes.each do |attribute, (old_value, new_value)|
+    def do_changes
+        binding.pry
+        return unless changed?
         
-      end
-    end
+    end 
+
 end 
