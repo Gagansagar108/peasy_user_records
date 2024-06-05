@@ -85,4 +85,4 @@ gem 'rest-client'
 
 
 
-gem 'pry-debugger-jruby'
+gem 'pry'
