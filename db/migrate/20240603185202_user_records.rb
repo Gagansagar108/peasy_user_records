@@ -11,7 +11,7 @@ class UserRecords < ActiveRecord::Migration[7.0]
     end
 
     create_table :user_records, id: :uuid, default: -> { 'gen_random_uuid()' } do |t|
-      t.date :date
+      t.date :date_of_entry
       t.integer :male_count
       t.integer :female_count
       t.float :male_avg_age
@@ -20,8 +20,7 @@ class UserRecords < ActiveRecord::Migration[7.0]
     end 
 
     add_index :users, :uuid, unique: true
-    add_index :user_records, :date
     add_index :users, :gender
-    add_index :users, :age, where: "(age IS not NULL)"
+    add_index :users, :date_of_entry
   end
 end
