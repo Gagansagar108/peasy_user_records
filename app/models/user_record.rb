@@ -1,6 +1,7 @@
 class UserRecord < ApplicationRecord
     include ActiveModel::Dirty
-    define_attribute_methods :male_count, :femmale_count
+    
+    define_attribute_methods :male_count, :female_count
 
     after_save :update_changes
 
