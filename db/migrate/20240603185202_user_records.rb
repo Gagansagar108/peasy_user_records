@@ -20,5 +20,6 @@ class UserRecords < ActiveRecord::Migration[7.0]
 
     add_index :users, :uuid, unique: true
     add_index :user_records, :date
+    add_index :users, :gender
   end
 end
