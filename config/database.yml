@@ -92,9 +92,9 @@ test:
 #
 production:
   <<: *default
-  database: tanx
-  username: tanx
-  password: tanx
+  database: peasy
+  username: peasy
+  password: peasy
   host: 52.66.178.119
   port: 5432
   sslmode: disable
