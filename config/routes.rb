@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   scope '/peasy' do
-    resources :users
+    resources :users, only: [:index, :show, :update, :destroy]
     root to: 'users#index'
   end
 
