@@ -4,7 +4,7 @@ class TestJob
   
     def perform(args = {})
       # Your background job logic goes here
-      User.create!(uuid: Random.hex, name: {name: "#{Random.alphanumeric}gagan"} )
+      p "this is test"
   
     
     end
