@@ -1,5 +1,14 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Page</title>
+</head>
 
+
+<body>
 <div>
 <div>
 <h2> Users List </h2>
@@ -24,7 +33,7 @@
         <td>   <form id="search-form" action="/users" method="post">
     <input type="text" name="query" value= {{user.id}}>
     <button type="submit">Delete</button>
-  </form>  <
+  </form> 
   /td>
     </tr>
 
@@ -37,8 +46,8 @@
 <a>
 
   <form action="/users" method="get">
-    <input type="text" name="query" value= name>
-    <input type="number" name="page" value= page>
+    <input type="text" name="query" value = "{{name}}">
+    <input type="number" name="page" value = "{{page}}">
     <input type="submit" value="Search">
   </form>
   
@@ -46,3 +55,8 @@
 
 </div>
 </div>
+
+
+
+</body>
+</html>
