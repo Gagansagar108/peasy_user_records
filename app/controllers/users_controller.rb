@@ -2,12 +2,19 @@ class UsersController < ApplicationController
 
     def index
         data = list_user
-binding.pry
         @template = Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid"))).render({'data' => data.as_json })
 
         render inline:  @template
     end
+   
+    def destroy
+        id = params[:id]
+        binding.pry
+        user = User.find(params[:id])
 
+        user.delete
+        return index
+    end 
 
     def list_user
         page = params[:page] || 10
