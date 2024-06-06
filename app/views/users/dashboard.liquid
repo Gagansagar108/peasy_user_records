@@ -29,6 +29,15 @@
 </div>
 
 <div>
-<a> Total_page: {{data.total_pages}}, {{data.current_page}}/{{data.total_count}}}</a>
+<a> Tota Users: {{data.total_count}}, Page: {{data.current_page}}/{{data.total_page}}</a>
+<a>
+
+  <form action="/searches" method="get">
+    <input type="text" name="query" value="{{ query }}">
+    <input type="submit" value="Search">
+  </form>
+  
+   </a>
+
 </div>
 </div>
