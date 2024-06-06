@@ -9,4 +9,16 @@ class UsersController < ApplicationController
 
     end
 
+
+    def list_user(params)
+        page = params[:page]
+        query = User.page(page).per(10)
+    
+        apply_query_filters(query)
+    end 
+
+    def apply_query_filters(query)
+        query
+    end 
+
 end 

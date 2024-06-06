@@ -86,3 +86,5 @@ gem 'rest-client'
 gem 'liquid'
 
 gem 'pry'
+
+gem 'kaminari'
