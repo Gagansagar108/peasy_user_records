@@ -3,8 +3,10 @@ class UsersController < ApplicationController
     def index
         @user = User.all
 
-        @template = Liquid::Template.parse("hi {{name}}") # Parses and compiles the template
+        @template = Liquid::Template.parse("hi {{name}}") 
         @template.render('name' => 'tobi')
+
+        render inline:  @template
 
     end
 
