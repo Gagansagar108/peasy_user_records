@@ -11,10 +11,10 @@
 
   {% for user in users %}
     <tr>
-        <td>  {{ user[:name][:first] }} </td>
-        <td> {{ user[:name][:last] }} </td>
-        <td> {{  user[:age] }} </td>
-        <td> {{  user[:location][:city] }}</td>
+        <td>  {{ user.name[:first] }} </td>
+        <td> {{ user.name[:last] }} </td>
+        <td> {{  user.age }} </td>
+        <td> {{  user.location[:city] }}</td>
         <td> delete  </td>
     </tr>
 
