@@ -2,10 +2,9 @@ class UsersController < ApplicationController
 
     def index
         @user = User.all
-        binding.pry
-        template = Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid.erb")))
 
-        render "users/show", locals: { user: @user }
+        @template = Liquid::Template.parse("hi {{name}}") # Parses and compiles the template
+        @template.render('name' => 'tobi')
 
     end
 
