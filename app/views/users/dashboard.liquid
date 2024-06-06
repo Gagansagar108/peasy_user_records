@@ -1,8 +1,22 @@
-<ul>
+<h2> Users List </h2>
+<table>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>Age</th>
+<th>DOB</th>
+<th>City</th>
+<th>Action</th>
+</tr>
+
   {% for user in users %}
-    <li>
-      <h2>{{ user }}</h2>
-      
-    </li>
+    <tr>
+    <td>  {{ user[:name][:first] }} </td>
+    <td> {{ user[:name][:last] }} </td>
+    <td> {{  user[:age] }} </td>
+    <td> {{  user[:location][:city] }}</td>
+    <td> delete  </td>
+    </tr>
+
   {% endfor %}
-</ul>
+</table>
