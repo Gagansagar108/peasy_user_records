@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     def index
         @user = User.all
 
-        @template = Liquid::Template.parse("hi {{name}}").render('user' => @user)
+        @template =  Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid"))).render({'user' => @user})
 
 
         render inline:  @template
