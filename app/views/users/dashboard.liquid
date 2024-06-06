@@ -21,7 +21,11 @@
         <td> {{ user.name.last] }} </td>
         <td> {{  user.age }} </td>
         <td> {{  user.location.city }}</td>
-        <td> delete  </td>
+        <td>   <form id="search-form" action="/users" method="post">
+    <input type="text" name="query" value= {{user.id}}>
+    <button type="submit">Delete</button>
+  </form>  <
+  /td>
     </tr>
 
   {% endfor %}
@@ -32,8 +36,9 @@
 <a> Tota Users: {{data.total_count}}, Page: {{data.current_page}}/{{data.total_page}}</a>
 <a>
 
-  <form action="/searches" method="get">
-    <input type="text" name="query" value="{{ query }}">
+  <form action="/users" method="get">
+    <input type="text" name="query" value= name>
+    <input type="number" name="page" value= page>
     <input type="submit" value="Search">
   </form>
   
