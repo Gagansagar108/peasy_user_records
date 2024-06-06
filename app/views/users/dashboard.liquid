@@ -1,21 +1,21 @@
 <h2> Users List </h2>
 <table>
 <tr>
-<th>Firstname</th>
-<th>Lastname</th>
-<th>Age</th>
-<th>DOB</th>
-<th>City</th>
-<th>Action</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Action</th>
+
 </tr>
 
   {% for user in users %}
     <tr>
-    <td>  {{ user[:name][:first] }} </td>
-    <td> {{ user[:name][:last] }} </td>
-    <td> {{  user[:age] }} </td>
-    <td> {{  user[:location][:city] }}</td>
-    <td> delete  </td>
+        <td>  {{ user[:name][:first] }} </td>
+        <td> {{ user[:name][:last] }} </td>
+        <td> {{  user[:age] }} </td>
+        <td> {{  user[:location][:city] }}</td>
+        <td> delete  </td>
     </tr>
 
   {% endfor %}
