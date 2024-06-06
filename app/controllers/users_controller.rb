@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         @user = User.all
         template = Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid.erb")))
 
-        render locals: { user: @user }
+        render "posts/show", locals: { user: @user }
 
     end
 
