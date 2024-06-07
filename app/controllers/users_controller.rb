@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     def list_user
         page = params[:page] || 1
         query = User.page(page).per(10)
-        binding.pry
+
         apply_query_filters(query) if params[:query]
 
         return {users: query, total_page: query.total_pages, total_count: query.total_count, current_page: page}
