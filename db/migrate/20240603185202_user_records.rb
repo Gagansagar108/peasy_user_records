@@ -19,7 +19,8 @@ class UserRecords < ActiveRecord::Migration[7.0]
       t.float :female_avg_age, scale: 2
       t.timestamps
     end 
-
+    enable_extension :pg_trgm
+    
     add_index :users, :uuid, unique: true
     add_index :users, :gender
     add_index :users, :date_of_entry
