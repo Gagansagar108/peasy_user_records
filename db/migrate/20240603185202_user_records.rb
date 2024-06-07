@@ -7,6 +7,7 @@ class UserRecords < ActiveRecord::Migration[7.0]
       t.jsonb :location
       t.integer :age
       t.date :date_of_entry
+      t.string :query_data
       t.timestamps
     end
 
@@ -23,5 +24,6 @@ class UserRecords < ActiveRecord::Migration[7.0]
     add_index :users, :gender
     add_index :users, :date_of_entry
     add_index :user_records, :date_of_entry
+    add_index :users, :username, using: :gin
   end
 end

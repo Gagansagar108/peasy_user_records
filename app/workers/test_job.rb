@@ -4,8 +4,8 @@ class TestJob
   
     def perform(args = {})
       # Your background job logic goes here
-      p "this is test"
+      p "this is test Job Running"
   
-    
+  
     end
   end
