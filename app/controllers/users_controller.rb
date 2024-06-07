@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         page = params[:page] || 1
         query = User.page(page).per(10)
 
-        apply_query_filters(query) if params[:user_search_query]
+        query = apply_query_filters(query) if params[:user_search_query]
 
         return {users: query, total_page: query.total_pages, total_count: query.total_count, current_page: page}
     end 
