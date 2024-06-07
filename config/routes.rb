@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
   
-  post '/peasy/users/:id', to: 'users#index'
+  post '/peasy/users', to: 'users#index'
 
   require 'sidekiq/web'
   require 'sidekiq/cron/web'
