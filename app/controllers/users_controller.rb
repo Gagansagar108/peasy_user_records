@@ -1,20 +1,23 @@
 class UsersController < ApplicationController
 
     def index
-    
         data = list_user
-        @template = Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid.erb"))).render({'data' => data.as_json })
-
-        render inline:  @template
+        render_user_list
     end
    
     def destroy
-        id = params[:id]
-        binding.pry
-        user = User.find(params[:id])
+        id = params[:user_id]
 
+        user = User.where(params[:id]).take
+        
+        if user.blank?
+            render json: { errors: 'user does not exists' },
+            status: :unprocessable_entity
+            return
+        end
+        
         user.delete
-        return index
+        index
     end 
 
     def list_user
@@ -28,5 +31,12 @@ class UsersController < ApplicationController
     def apply_query_filters(query)
         query
     end 
+
+    def render_user_list(user)
+        @template = Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid.erb"))).render({'data' => user.as_json })
+
+        render inline:  @template
+    end
+
 
 end 
