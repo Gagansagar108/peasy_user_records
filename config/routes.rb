@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :update, :destroy]
     root to: 'users#index'
   end
+  
+  post '/peasy/users/:id', to: 'users#index'
 
   require 'sidekiq/web'
   require 'sidekiq/cron/web'
