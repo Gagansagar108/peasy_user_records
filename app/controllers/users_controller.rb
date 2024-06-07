@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def index
         data = list_user
-        render_user_list
+        render_user_list(data)
     end
    
     def destroy
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
             status: :unprocessable_entity
             return
         end
-        
+
         user.delete
         index
     end 
