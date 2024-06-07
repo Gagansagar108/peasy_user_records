@@ -51,10 +51,31 @@
         }
 
         #delete_button {
-          background-color: red;    
-          color: white;
-          border-radius: 1px solid #dddddd
+            background-color: rgb(206, 83, 83);
+            border: none;
+            color: white;
+            padding: auto;
+            border-radius: 2%;
     }
+
+
+        #search_user {
+            margin-left: 10%;
+            margin-top: 3%;
+               width: 80%;
+               padding: auto;
+
+           }
+
+           .pagination{
+
+                margin-left: 10%;
+
+               width: 80%;
+           }
+
+
+
     </style>
 </head>
 <body>
@@ -63,6 +84,18 @@
             <h1>User List</h1>
         </div>
     </header>
+
+    <div>
+    <div id="search_user">
+
+        <form action="/peasy/users" method="get"> <input type="text" name="query" value="" placeholder=" Search User">
+            <input type="submit" value="Search">
+        </form>
+        </a>
+    </div>
+</div>
+
+
     <div class="container">
         <table>
             <thead>
@@ -100,9 +133,9 @@
         </table>
     </div>
 
-    <div>
-<a> Tota Users: {{data.total_count}}, Page: {{data.current_page}}/{{data.total_page}}</a>
-<a>
+    <div class="pagination" >
+<a style="font-family: Georgia, 'Times New Roman', Times, serif;" > Tota Users: {{data.total_count}}, Page: {{data.current_page}}/{{data.total_page}}</a>
+<a > 
 
   <form action="/peasy/users" method="get">
     <input type="text" name="query" value = "{{name}}">
