@@ -87,7 +87,7 @@
         
           <td> 
           <form action="/peasy/users" method="post" >
-          <a id = "delete_button" > <%= button_tag "remove", type: 'submit', name: "user_id", value: "{{user.id}}" %> </a>
+          <%= button_tag "remove", id: "delete_button",  type: 'submit', name: "user_id", value: "{{user.id}}" %> 
           </form > 
           </td>
           </tr>
