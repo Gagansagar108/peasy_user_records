@@ -30,15 +30,10 @@
         <td> {{ user.name.last] }} </td>
         <td> {{  user.age }} </td>
         <td> {{  user.location.city }}</td>
-        <td>  
-        <form action="/peasy/users" method="post">
-    <button type="submit" value= "{{user.id}}" >Delete</button>
-  </form> 
-  </td>
 
   <td> 
   <form action="/peasy/users" method="post">
-  <%= button_tag "Save for Later", type: 'submit', name: "application_status_id", value: "{{user.id}}", class: "btn btn-light" %> </td>
+  <%= button_tag "remove", type: 'submit', name: "user_id", value: "{{user.id}}" %> </td>
   </form > 
   
   </tr>
