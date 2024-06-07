@@ -88,7 +88,7 @@
     <div>
     <div id="search_user">
 
-        <form action="/peasy/users" method="get"> <input type="text" name="query" value="" placeholder=" Search User">
+        <form action="/peasy/users" method="get"> <input type="text" name="query" value="{{query_name}}" placeholder=" Search User">
             <input type="submit" value="Search">
         </form>
         </a>
@@ -135,15 +135,12 @@
 
     <div class="pagination" >
 <a style="font-family: Georgia, 'Times New Roman', Times, serif;" > Tota Users: {{data.total_count}}, Page: {{data.current_page}}/{{data.total_page}}</a>
-<a > 
 
   <form action="/peasy/users" method="get">
-    <input type="text" name="query" value = "{{name}}">
     <input type="number" name="page" value = "{{page}}">
     <input type="submit" value="Search">
   </form>
   
-   </a>
 
 </div>
 
