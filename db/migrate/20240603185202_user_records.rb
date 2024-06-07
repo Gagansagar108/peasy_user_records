@@ -24,6 +24,6 @@ class UserRecords < ActiveRecord::Migration[7.0]
     add_index :users, :gender
     add_index :users, :date_of_entry
     add_index :user_records, :date_of_entry
-    add_index :users, :query_data, using: :gin
+    add_index :users, :query_data, using: :gin, opclass: :gin_trgm_ops
   end
 end
