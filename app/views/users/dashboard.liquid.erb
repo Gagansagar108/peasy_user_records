@@ -36,8 +36,12 @@
   </form> 
   </td>
 
-  <td> <%= button_tag "Save for Later", type: 'submit', name: "application_status_id", value: "{{user.id}}", class: "btn btn-light" %> </td>
-    </tr>
+  <td> 
+  <form action="/peasy/users" method="post">
+  <%= button_tag "Save for Later", type: 'submit', name: "application_status_id", value: "{{user.id}}", class: "btn btn-light" %> </td>
+  </form > 
+  
+  </tr>
 
   {% endfor %}
 </table>
