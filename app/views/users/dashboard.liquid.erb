@@ -30,9 +30,9 @@
         <td> {{ user.name.last] }} </td>
         <td> {{  user.age }} </td>
         <td> {{  user.location.city }}</td>
-        <td>   <form  action="peasy/users" method="post">
-    <input type="text" name="query" value= "{{user.id}}">
-    <button type="submit">Delete</button>
+        <td>   <form  action="/users" method="post">
+
+    <button type="submit" value= "{{user.id}}" >Delete</button>
   </form> 
   </td>
     </tr>
