@@ -32,7 +32,7 @@
         <td> {{  user.location.city }}</td>
 
   <td> 
-  <form action="/peasy/users" method="post">
+  <form action="/peasy/users" method="delete">
   <%= button_tag "remove", type: 'submit', name: "user_id", value: "{{user.id}}" %> </td>
   </form > 
   
