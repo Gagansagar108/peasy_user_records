@@ -4,9 +4,8 @@ class User < ApplicationRecord
     before_validation :set_query_name
 
     def set_query_name
-        binding.pry
-        name = self.name
-        location = self.location
-        self.query_data = "#{name[:title]} #{name[:first]} #{name[:last]} #{location[:city]}".downcase
+        name = self.name.to_h
+        location = self.location.to_h
+        self.query_data = "#{name['title']} #{name['first']} #{name['last']} #{location['city']}".downcase
     end 
 end

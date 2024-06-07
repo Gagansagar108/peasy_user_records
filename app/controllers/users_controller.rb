@@ -23,13 +23,16 @@ class UsersController < ApplicationController
     def list_user
         page = params[:page] || 1
         query = User.page(page).per(10)
-    
-        apply_query_filters(query)
+        binding.pry
+        apply_query_filters(query) if params[:query_name]
+
         return {users: query, total_page: query.total_pages, total_count: query.total_count, current_page: page}
     end 
 
     def apply_query_filters(query)
-        query
+        
+        query_name = params[:query_name]
+        query.where("query_data ilike %#{query_name}%")
     end 
 
     def render_user_list(user)
