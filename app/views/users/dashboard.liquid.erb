@@ -35,7 +35,7 @@
 
 
 
-        <%= form_tag( 'peasy/users', method: :delete) do %>
+        <%= form_tag( '/users', method: :delete) do %>
           <%= label_tag 'Please enter the username that you want to delete:' %>
           <%= text_field_tag :name %>
           <%= submit_tag 'Send delete request' %>
