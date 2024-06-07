@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def index
+    
         data = list_user
         @template = Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid.erb"))).render({'data' => data.as_json })
 
