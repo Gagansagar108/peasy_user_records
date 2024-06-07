@@ -1,48 +1,98 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        table thead tr {
+            background-color: #333;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+        table th, table td {
+            padding: 12px 15px;
+        }
+        table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid #333;
+        }
+    </style>
 </head>
-
-
 <body>
-<div>
-<div>
-<h2> Users List </h2>
+    <header>
+        <div class="container">
+            <h1>User List</h1>
+        </div>
+    </header>
+    <div class="container">
+        <table>
+            <thead>
 
+                <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>City</th>
+                <th> Gender </th>
+                <th>Action</th>
 
-<table>
-<tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Age</th>
-        <th>City</th>
-        <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in data.users %}
+            <tr>
+                <td>  {{ user.name.first }} </td>
+                <td> {{ user.name.last] }} </td>
+                <td> {{  user.age }} </td>
+                <td> {{  user.location.city }}</td>
+        
+          <td> 
+          <form action="/peasy/users" method="post">
+          <%= button_tag "remove", type: 'submit', name: "user_id", value: "{{user.id}}" %> </td>
+          </form > 
+          
+          </tr>
+        
+          {% endfor %}
 
-</tr>
+            </tbody>
+        </table>
+    </div>
 
-  {% for user in data.users %}
-    <tr>
-        <td>  {{ user.name.first }} </td>
-        <td> {{ user.name.last] }} </td>
-        <td> {{  user.age }} </td>
-        <td> {{  user.location.city }}</td>
-
-  <td> 
-  <form action="/peasy/users" method="post">
-  <%= button_tag "remove", type: 'submit', name: "user_id", value: "{{user.id}}" %> </td>
-  </form > 
-  
-  </tr>
-
-  {% endfor %}
-</table>
-</div>
-
-<div>
+    <div>
 <a> Tota Users: {{data.total_count}}, Page: {{data.current_page}}/{{data.total_page}}</a>
 <a>
 
@@ -55,8 +105,6 @@
    </a>
 
 </div>
-</div>
-
 
 
 </body>
