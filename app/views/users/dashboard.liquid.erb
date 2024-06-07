@@ -31,9 +31,24 @@
         <td> {{  user.age }} </td>
         <td> {{  user.location.city }}</td>
         <td>  
-        <form action="/peasy/users" method="post">
-    <button type="submit" value= "{{user.id}}" >Delete</button>
-  </form> 
+        
+
+
+
+        <%= form_tag( 'peasy/users', method: :delete) do %>
+          <%= label_tag 'Please enter the username that you want to delete:' %>
+          <%= text_field_tag :name %>
+          <%= submit_tag 'Send delete request' %>
+        <% end %>
+
+
+
+
+
+
+
+
+
   </td>
     </tr>
 
