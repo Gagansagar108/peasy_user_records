@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
-  post '/peasy/users/delete', to: 'users#destroy'
+  post '/peasy/users/delete' to: 'users#destroy'
   get '/peasy/list_users' to: 'users#list_user_records'
   post '/peasy/fetch_new_records' to: 'users#fetch_new_records'
 
