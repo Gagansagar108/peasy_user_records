@@ -29,12 +29,14 @@ class CreateUserRecordsJob
     end
 
     def update_redis_data
-      users = User.group(:gender).count
+    binding.pry
+
+      users = UsersHelper.get_gender_wise_user_counts
       
       redis_keys = {}
       
       keys = %w[male female].each{ |gender| redis_keys["#{gender}_users_count"] = users[gender] }
-      
+      redis_keys =  3
       Rails.cache.write_multi(redis_keys)
       Rails.cache.delete('user_job_last_exectuted_at')
     end 
