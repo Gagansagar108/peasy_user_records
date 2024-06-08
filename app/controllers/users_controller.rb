@@ -17,9 +17,9 @@ class UsersController < ApplicationController
         end
         
         ActiveRecord::Base.transaction do
-            user.delete
+            user.destroy
         end 
-        
+
         index
     end 
 
