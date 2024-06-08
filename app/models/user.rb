@@ -6,7 +6,7 @@ class User < ApplicationRecord
     include ActiveModel::Dirty
     define_attribute_methods 
 
-    after_destroy :update_daily_records_stats
+    after_destroy :sync_daily_records_stats
 
     def set_query_name
         name = self.name.to_h
@@ -14,8 +14,7 @@ class User < ApplicationRecord
         self.query_data = "#{name['title']} #{name['first']} #{name['last']} #{location['city']}".downcase
     end 
 
-    def update_daily_records_stats
-        record = self.record
-        UserRecordsHelper.create_gender_wise_users_count({date_of_entry: self.date_of_entry}) if record
+    def sync_daily_records_stats
+        UserRecordsHelper.create_gender_wise_users_count({date_of_entry: self.date_of_entry}) if self.record
     end 
 end

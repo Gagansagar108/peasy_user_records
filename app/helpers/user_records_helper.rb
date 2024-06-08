@@ -9,7 +9,7 @@ module UserRecordsHelper
         daily_records_params = {date_of_entry: date_of_entry}
        
         daily_records_params.merge!({female_count: genders_count['female'], male_count: genders_count['male']})
-
+        binding.pry
         self.create_daily_records(daily_records_params)
     end
 
