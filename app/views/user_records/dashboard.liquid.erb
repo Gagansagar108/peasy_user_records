@@ -15,13 +15,13 @@
             width: 80%;
             margin: auto;
             overflow: hidden;
+            
         }
         header {
             background: #333;
             color: #fff;
             padding-top: 30px;
             min-height: 70px;
-            border-bottom: #77aaff 3px solid;
             text-align: center;
         }
         table {
@@ -86,25 +86,53 @@ li a:hover {
   background-color: #111;
 }
 
+.nav {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
 
+}
 
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-        
-        <ul>
-        <li><a class="active" href="/peasy">Home</a>  </li>
-        <li><a href="/peasy/records">Records</a>  </li>
-      </ul>
+    <div class="container">
 
-            
-        </div>
+    <ul class="nav">
+
+        <li>
+            <a class="active" href="/peasy">USERS LIST</a>
+        </li>
+
+        <li>
+            <a href="/peasy/records">USER RECORD STATS</a>
+        </li>
+
+    </ul>
+
+</div>
     </header>
 
     <div>
+    <div id="search_user">
+
+        <form action="/peasy/users" method="get"> <input type="text" name="user_search_query" value="{{query_name}}" placeholder=" Search User">
+            <input type="submit" value="Search">
+        </form>
+
+        <form action="/peasy/fetch_new_records" method="post" style="margin-top: 1%;">
+
+        <input type="submit" value="Fetch New Users">
+
+</form>
+
+    </div>
+
+
 </div>
+
+
 
 
     <div class="container">
@@ -115,28 +143,20 @@ li a:hover {
                 <th>Date</th>
                 <th>Male Count</th>
                 <th>Female Count</th>
-                <th>Male Average Age</th>
-                <th> Female Average Age </th>
-        
+                <th>Male Avg Age</th>
+                <th> Female Avg Age </th>
 
                 </tr>
             </thead>
             <tbody>
-            {% for user_record in data.user_records %}
+            {% for record in data.user_records %}
             <tr>
-             <td> {{  user_record.date_of_entry }} </td>
-                <td>  {{ user_record.male_count }} </td>
-                <td> {{ user_record.female_count }} </td>
-                <td> {{  user_record.male_avg_age }} </td>
-                <td> {{  user_record.female_avg_age }}</td>
-               
-               
-        
-          <td> 
-          <form action="/peasy/users" method="post" >
-          <%= button_tag "remove", id: "delete_button",  type: 'submit', name: "user_id", value: "{{user.id}}" %> 
-          </form > 
-          </td>
+                <td>  {{ record.date_of_entry }} </td>
+                <td> {{ record.male_count] }} </td>
+                <td> {{  record.female_count }} </td>
+                <td> {{  record.male_avg_age }}</td>
+                <td> {{  record.female_avg_age }}</td>
+
           </tr>
         
           {% endfor %}
@@ -155,7 +175,6 @@ li a:hover {
 
 </div>
 
-</div>
 
 
 </body>

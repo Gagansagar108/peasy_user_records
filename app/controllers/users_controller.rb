@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     end 
 
     def render_user_list(user)
-        binding.pry
         @template = Liquid::Template.parse(File.read(Rails.root.join("app", "views","users", "dashboard.liquid.erb"))).render({'data' => user.as_json })
         render inline:  @template
     end
