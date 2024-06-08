@@ -23,11 +23,14 @@ class User < ApplicationRecord
     end 
     
     def update_redis_count(amount = 1)
-        binding.pry
-        key = "#{self.gender}"
-        redis = Redis.new
-        redis.incrby('total_users_count', amount)
-        redis.incrby(key, amount)
+        key = "#{self.gender}_users_count"
+        count = Rails.cache.fetch(key)
+        count += amount
+        Rails.cache.write(key,count)
+
+        count = Rails.cache.fetch('total_users_count')
+        count += amount
+        Rails.cache.write('total_users_count',count)
     end 
 
 end
