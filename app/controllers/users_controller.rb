@@ -15,8 +15,11 @@ class UsersController < ApplicationController
             status: :unprocessable_entity
             return
         end
-
-        user.delete
+        
+        ActiveRecord::Base.transaction do
+            user.delete
+        end 
+        
         index
     end 
 

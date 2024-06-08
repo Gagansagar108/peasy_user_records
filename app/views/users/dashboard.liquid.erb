@@ -15,6 +15,7 @@
             width: 80%;
             margin: auto;
             overflow: hidden;
+            
         }
         header {
             background: #333;
@@ -109,15 +110,14 @@ li a:hover {
         <form action="/peasy/users" method="get"> <input type="text" name="user_search_query" value="{{query_name}}" placeholder=" Search User">
             <input type="submit" value="Search">
         </form>
+
+        <form action="/peasy/fetch_new_records" method="post"> 
+        <input type="submit" value="Fetch New Users">
+    </form>
         </a>
     </div>
 
-    <div id="search_user">
 
-    <form action="/peasy/fetch_new_records" method="post"> 
-        <input type="submit" value="Search">
-    </form>
-    </a>
 </div>
 
 

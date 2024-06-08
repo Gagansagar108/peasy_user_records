@@ -6,20 +6,16 @@ class User < ApplicationRecord
     include ActiveModel::Dirty
     define_attribute_methods 
 
+    after_delete :update_daily_records_stats
+
     def set_query_name
         name = self.name.to_h
         location = self.location.to_h
         self.query_data = "#{name['title']} #{name['first']} #{name['last']} #{location['city']}".downcase
     end 
 
-
-
-    #after_save :do_changes
-
-    def do_changes
-        binding.pry
-        return unless changed?
-    
+    def update_daily_records_stats
+        record = self.record
+        record.update_daily_records_stats if record
     end 
-
 end
