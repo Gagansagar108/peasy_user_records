@@ -88,3 +88,5 @@ gem 'liquid'
 gem 'pry'
 
 gem 'kaminari'
+
+gem 'ruby-enum', '~> 0.9.0'

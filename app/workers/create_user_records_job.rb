@@ -3,7 +3,7 @@ class CreateUserRecordsJob
     sidekiq_options queue: :default
   
     def perform(args = {})
-      key = 'last_exectuted_at' 
+      
 
       Rails.cache.write(key, Time.zone.now.time, expires_in: 1.minutes)
 
