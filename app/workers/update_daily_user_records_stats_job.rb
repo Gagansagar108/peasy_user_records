@@ -3,6 +3,6 @@ class UpdateDailyUserRecordsStatsJob
     sidekiq_options queue: :default
   
     def perform(args = {})
-        UserRecordsHelper::get_gender_wise_users_count()
+        UserRecordsHelper.create_gender_wise_users_count()
     end
 end 

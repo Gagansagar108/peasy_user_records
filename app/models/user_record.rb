@@ -13,7 +13,7 @@ class UserRecord < ApplicationRecord
 
 
     def update_daily_records_stats
-        bidning.pry
+        binding.pry
         query = "SELECT gender, AVG(age) from users where age is not null and date_of_entry = '#{self.date_of_entry}' GROUP by gender"
       
         data = ActiveRecord::Base.connection.execute(query).as_json.map(&:deep_symbolize_keys)
