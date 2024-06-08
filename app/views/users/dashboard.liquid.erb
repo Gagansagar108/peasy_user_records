@@ -81,6 +81,11 @@
 <body>
     <header>
         <div class="container">
+
+        <form action="/peasy" method="get">
+    <input type="submit" value="User List">
+  </form>
+
             <h1>User List</h1>
         </div>
     </header>
@@ -142,6 +147,17 @@
   </span>
 
 </div>
+
+<div class="pagination" >
+<span style="font-family: Georgia, 'Times New Roman', Times, serif;" > Tota Users: {{data.total_count}}, Page: {{data.current_page}}/{{data.total_page}}
+  <form action="/peasy/users" method="get">
+    <input type="number" name="page" min="1" value = "{{page}}">
+    <input type="submit" value="Search">
+  </form>
+  </span>
+
+</div>
+
 
 
 </body>
