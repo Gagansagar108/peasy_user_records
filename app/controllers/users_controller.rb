@@ -56,6 +56,6 @@ class UsersController < ApplicationController
     end 
 
     def users_count
-        render json: UsersHelper.get_users_count_redis_data
+        redis_data = UsersHelper.get_users_count_redis_data
     end 
 end 

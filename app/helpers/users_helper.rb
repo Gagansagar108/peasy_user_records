@@ -1,13 +1,22 @@
-module UsersHelper
+class UsersHelper
+    def initialize(users_count_data = None)
+        @users_count_data = users_count_data
+    end
 
-    def self.get_gender_wise_user_counts
+    def set_users_count_data
+        return if @users_count_data
         users = User.group(:gender).count
-        return users.merge!('total__users_count' => users.values.sum)
+        @users_count_data = users.merge!('total__users_count' => users.values.sum)
+    end 
+    
+    def get_users_count_data
+        set_users_count_data
+        @users_count_data 
     end 
 
     def get_users_count_redis_data(count)
         keys = UserConstants::REDIS_COUNT_KEYS 
-        return  Rails.cache.fetch_multi(keys){|key| key}
+        return Rails.cache.fetch_multi(keys){|key| key}
     end 
 
     def set_users_count_redis_data(users_count_data)
