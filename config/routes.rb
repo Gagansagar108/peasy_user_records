@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   scope '/peasy' do
     resources :users, only: [:index, :show, :update, :destroy]
-    resources :records, only: [:index]
     root to: 'users#index'
   end
 
