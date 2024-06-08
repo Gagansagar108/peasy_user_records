@@ -6,7 +6,7 @@ class User < ApplicationRecord
     include ActiveModel::Dirty
     define_attribute_methods 
 
-    after_delete :update_daily_records_stats
+    after_destroy :update_daily_records_stats
 
     def set_query_name
         name = self.name.to_h
