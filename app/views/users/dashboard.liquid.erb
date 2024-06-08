@@ -22,7 +22,6 @@
             color: #fff;
             padding-top: 30px;
             min-height: 70px;
-            border-bottom: #77aaff 3px solid;
             text-align: center;
         }
         table {
@@ -87,21 +86,32 @@ li a:hover {
   background-color: #111;
 }
 
+.nav {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
 
+}
 
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-        
-        <ul>
-        <li><a class="active" href="/peasy">Home</a>  </li>
-        <li><a href="/peasy/records">Records</a>  </li>
-      </ul>
+    <div class="container">
 
-            
-        </div>
+    <ul class="nav">
+
+        <li>
+            <a class="active" href="/peasy">USERS LIST</a>
+        </li>
+
+        <li>
+            <a href="/peasy/records">USER RECORD STATS</a>
+        </li>
+
+    </ul>
+
+</div>
     </header>
 
     <div>
@@ -111,17 +121,18 @@ li a:hover {
             <input type="submit" value="Search">
         </form>
 
-        <form action="/peasy/fetch_new_records" method="post"> 
+        <form action="/peasy/fetch_new_records" method="post" style="margin-top: 1%;">
+
         <input type="submit" value="Fetch New Users">
-    </form>
-        </a>
+
+</form>
+
     </div>
 
 
 </div>
 
 
-</div>
 
 
     <div class="container">
