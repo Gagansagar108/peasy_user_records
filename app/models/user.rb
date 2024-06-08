@@ -15,6 +15,7 @@ class User < ApplicationRecord
     end 
 
     def update_daily_records_stats
+        binding.pry
         record = self.record
         record.update_daily_records_stats if record
     end 
