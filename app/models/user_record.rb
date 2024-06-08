@@ -17,7 +17,7 @@ class UserRecord < ApplicationRecord
       
         data = ActiveRecord::Base.connection.execute(query).as_json.map(&:deep_symbolize_keys)
       
-        params = data.inject({}){|params,key| params.merge!("#{key[:gender]}_avg_age": key[:avg].round(1))}
+        params = data.inject({}){|params,key| params.merge!("#{key[:gender]}_avg_age": key[:avg].to_f.round(1))}
       
         self.assign_attributes(params)
     end
