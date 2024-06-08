@@ -10,6 +10,7 @@ class UsersCountDataHelper
     end 
     
     def get_users_count_data
+        set_users_count_data
         @users_count_data 
     end 
 
@@ -17,7 +18,7 @@ class UsersCountDataHelper
         set_users_count_data
         keys = UserConstants::REDIS_COUNT_KEYS.map{ |gender| "#{gender}_users_count"}
 
-        return Rails.cache.read_multi(*keys)
+        Rails.cache.read_multi(*keys)
     end 
 
     def set_users_count_redis_data
