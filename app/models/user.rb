@@ -26,7 +26,7 @@ class User < ApplicationRecord
         key = "#{self.gender}"
         redis = Redis.new
         redis.incrby('total_users_count', amount)
-        redis.incrby('key', amount)
+        redis.incrby(key, amount)
     end 
 
 end
