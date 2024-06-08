@@ -20,7 +20,10 @@ class User < ApplicationRecord
         
         key = "#{self.gender}_users_count"
         
-        count = Rails.cache.fetch(key)
+        gender_count = Rails.cache.fetch(key)
         Rails.cache.write( key, count -1)
+        
+        total_users_count = Rails.cache.fetch( 'total_users_count')
+        Rails.cache.write('total_users_count', total_users_count -1)
     end 
 end
