@@ -56,6 +56,11 @@ class UsersController < ApplicationController
     end 
 
     def users_count
-        redis_data = UsersHelper.get_users_count_redis_data
+        user_counter_data = UsersCountDataHelper.new
+        keys = UserConstants::REDIS_COUNT_KEYS.map{ |gender| "#{gender}_users_count"}
+        
+        Rails.cache.fetch_multi(*keys){|key| user_counter_data.get_users_count_redis_data[key]}
+      
+        return 
     end 
 end 
