@@ -55,12 +55,12 @@ class UsersController < ApplicationController
         index
     end 
 
-    def users_count
-        user_counter_data = UsersCountDataHelper.new
-        keys = UserConstants::REDIS_COUNT_KEYS.map{ |gender| "#{gender}_users_count"}
-        
-        data = Rails.cache.fetch_multi(*keys){|key| user_counter_data.get_users_count_data[key.split('_').first]}
+  #  def users_count
+   #     user_counter_data = UsersCountDataHelper.new
+    #    keys = UserConstants::REDIS_COUNT_KEYS.map{ |gender| "#{gender}_users_count"}
+     #   
+      #  data = Rails.cache.fetch_multi(*keys){|key| user_counter_data.get_users_count_data[key.split('_').first]}
       
-        render json: data 
-    end 
+       # render json: data 
+    #end 
 end 
