@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/peasy/users/delete', to: 'users#destroy'
   get '/peasy/list_users', to: 'users#list_user_records'
   post '/peasy/fetch_new_records', to: 'users#fetch_new_records'
-  get 'peasy/users_count', to : 'users#users_count'
+  get 'peasy/users_count', to: 'users#users_count'
 
   require 'sidekiq/web'
   require 'sidekiq/cron/web'
