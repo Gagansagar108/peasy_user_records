@@ -23,6 +23,7 @@ class User < ApplicationRecord
     end 
     
     def update_redis_count(amount = 1)
+        binding.pry
         key = "#{self.gender}"
         redis = Redis.new
         redis.incrby('total_users_count', amount)
