@@ -7,6 +7,8 @@ class User < ApplicationRecord
     define_attribute_methods 
 
     after_destroy :sync_daily_records_stats
+    
+    after_create :update_redis_count
 
     def set_query_name
         name = self.name.to_h
@@ -18,12 +20,13 @@ class User < ApplicationRecord
     def sync_daily_records_stats
         UserRecordsHelper.create_gender_wise_users_count({date_of_entry: self.date_of_entry}) if self.record
         
-        key = "#{self.gender}_users_count"
-        
-        gender_count = Rails.cache.fetch(key)
-        Rails.cache.write( key, count -1)
-        
-        total_users_count = Rails.cache.fetch( 'total_users_count')
-        Rails.cache.write('total_users_count', total_users_count -1)
+        update_redis_count(amount = -1)
     end 
+    
+    def update_redis_count(amount)
+        key = "#{self.gender}"
+        Rails.cache.increment(key, amount = amount)
+        Rails.cache.increment('total_users_count', amount = amount)
+    end 
+
 end

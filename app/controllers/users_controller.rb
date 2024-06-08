@@ -54,4 +54,8 @@ class UsersController < ApplicationController
         CreateUserRecordsJob.perform_async()
         index
     end 
+
+    def users_count
+        render json: UsersHelper.get_users_count_redis_data
+    end 
 end 
