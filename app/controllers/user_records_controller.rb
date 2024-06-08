@@ -1,4 +1,4 @@
-class UsersRecordsController < ApplicationController
+class UserRecordsController < ApplicationController
     def index
         data = list_user_records
         render_user_record_list(data)
