@@ -15,7 +15,6 @@ class User < ApplicationRecord
     end 
 
     def sync_daily_records_stats
-        binding.pry
         UserRecordsHelper.create_gender_wise_users_count({date_of_entry: self.date_of_entry}) if self.record
     end 
 end
