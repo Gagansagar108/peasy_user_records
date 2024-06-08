@@ -104,13 +104,6 @@ li a:hover {
     </header>
 
     <div>
-    <div id="search_user">
-
-        <form action="/peasy/users" method="get"> <input type="text" name="user_search_query" value="{{query_name}}" placeholder=" Search User">
-            <input type="submit" value="Search">
-        </form>
-        </a>
-    </div>
 </div>
 
 
@@ -119,23 +112,24 @@ li a:hover {
             <thead>
 
                 <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Age</th>
-                <th>City</th>
-                <th> Gender </th>
-                <th>Action</th>
+                <th>Date</th>
+                <th>Male Count</th>
+                <th>Female Count</th>
+                <th>Male Average Age</th>
+                <th> Female Average Age </th>
+        
 
                 </tr>
             </thead>
             <tbody>
-            {% for user in data.users %}
+            {% for user_record in data.user_records %}
             <tr>
-                <td>  {{ user.name.first }} </td>
-                <td> {{ user.name.last] }} </td>
-                <td> {{  user.age }} </td>
-                <td> {{  user.location.city }}</td>
-                <td> {{  user.gender }} </td>
+             <td> {{  user_record.date_of_entry }} </td>
+                <td>  {{ user_record.male_count }} </td>
+                <td> {{ user_record.female_count }} </td>
+                <td> {{  user_record.male_avg_age }} </td>
+                <td> {{  user_record.female_avg_age }}</td>
+               
                
         
           <td> 

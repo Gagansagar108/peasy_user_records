@@ -3,6 +3,10 @@ class CreateUserRecordsJob
     sidekiq_options queue: :default
   
     def perform(args = {})
+      key = 'last_exectuted_at' 
+
+      Rails.cache.write(key, Time.zone.now.time, expires_in: 1.minutes)
+
       response = UserClient.get('https://randomuser.me/api', {"results": 20})
       records = response.deep_symbolize_keys[:results]
       records.each do |record|
@@ -25,6 +29,7 @@ class CreateUserRecordsJob
       end 
 
       update_redis_data
+      
     end
 
     def update_redis_data
@@ -35,5 +40,6 @@ class CreateUserRecordsJob
       keys = %w[male female].each{ |gender| redis_keys["#{gender}_users_count"] = users[gender] }
       
       Rails.cache.write_multi(redis_keys)
+      Rails.cache.delete(key)
     end 
 end  

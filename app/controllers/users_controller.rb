@@ -40,5 +40,16 @@ class UsersController < ApplicationController
         render inline:  @template
     end
 
+    def fetch_new_records
+        key = 'last_exectuted_at'
 
+        if Rails.cache.fetch(key)
+            render json: {"message": "pleae wait, still in queue"}
+            return 
+        end 
+
+        CreateUserRecordsJob.perform_async()
+
+        render json: {"message": "please wait, still fetching"}
+    end 
 end 
