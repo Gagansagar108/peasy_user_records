@@ -52,7 +52,6 @@ class UsersController < ApplicationController
         end 
 
         CreateUserRecordsJob.perform_async()
-
         index
     end 
 end 
