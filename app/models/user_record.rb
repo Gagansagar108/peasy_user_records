@@ -21,6 +21,6 @@ class UserRecord < ApplicationRecord
       
         params = data.inject({}){|params,y| params.merge!("#{y[:gender]}_avg_age": y[:avg])}
       
-        self.update!(params)
+        self.assign_attributes(params)
     end
 end 
