@@ -6,13 +6,12 @@ Rails.application.routes.draw do
 
   scope '/peasy' do
     resources :users, only: [:index, :show, :update, :destroy]
-    resources :records, only: [:index]
     root to: 'users#index'
   end
 
-  post '/peasy/users/delete' to: 'users#destroy'
-  get '/peasy/list_users' to: 'users#list_user_records'
-  post '/peasy/fetch_new_records' to: 'users#fetch_new_records'
+  post '/peasy/users/delete', to: 'users#destroy'
+  get '/peasy/list_users', to: 'users#list_user_records'
+  post '/peasy/fetch_new_records', to: 'users#fetch_new_records'
 
 
   require 'sidekiq/web'
