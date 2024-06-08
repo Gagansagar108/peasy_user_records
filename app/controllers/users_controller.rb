@@ -50,6 +50,6 @@ class UsersController < ApplicationController
 
         CreateUserRecordsJob.perform_async()
 
-        render json: {"message": "please wait, still fetching"}
+        index
     end 
 end 

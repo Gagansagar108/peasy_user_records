@@ -111,6 +111,16 @@ li a:hover {
         </form>
         </a>
     </div>
+
+    <div id="search_user">
+
+    <form action="/peasy/fetch_new_records" method="get"> 
+        <input type="submit" value="Search">
+    </form>
+    </a>
+</div>
+
+
 </div>
 
 
@@ -139,7 +149,7 @@ li a:hover {
                
         
           <td> 
-          <form action="/peasy/users" method="post" >
+          <form action="/peasy/users/delete" method="post" >
           <%= button_tag "remove", id: "delete_button",  type: 'submit', name: "user_id", value: "{{user.id}}" %> 
           </form > 
           </td>
