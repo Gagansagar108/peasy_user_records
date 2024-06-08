@@ -19,14 +19,14 @@ class User < ApplicationRecord
 
     def sync_daily_records_stats
         UserRecordsHelper.create_gender_wise_users_count({date_of_entry: self.date_of_entry}) if self.record
-        
-        update_redis_count(amount = -1)
+        update_redis_count(-1)
     end 
     
-    def update_redis_count(amount)
+    def update_redis_count(amount = 1)
         key = "#{self.gender}"
-        Rails.cache.increment(key, amount = amount)
-        Rails.cache.increment('total_users_count', amount = amount)
+        redis = Redis.new
+        redis.incrby('total_users_count', amount)
+        redis.incrby('key', amount)
     end 
 
 end
