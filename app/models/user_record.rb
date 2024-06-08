@@ -9,12 +9,12 @@ class UserRecord < ApplicationRecord
     def do_changes
         binding.pry
         return if (changes.keys & ['male_count', 'female_count']).blank?
-        update_daily_records_stats
+        assign_avg_daily_records_stats
     end 
 
 
-    def update_daily_records_stats
-       
+    def assign_avg_daily_records_stats
+        binding.pry
         query = "SELECT gender, AVG(age) from users where age is not null and date_of_entry = '#{self.date_of_entry}' GROUP by gender"
       
         data = ActiveRecord::Base.connection.execute(query).as_json.map(&:deep_symbolize_keys)
