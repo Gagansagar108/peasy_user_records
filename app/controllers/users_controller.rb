@@ -45,7 +45,7 @@ class UsersController < ApplicationController
 
     def fetch_new_records
         CreateUserRecordsJob.perform_async()
-        redirect_to index
+        redirect_to '/peasy'
     end 
 
     def users_count
