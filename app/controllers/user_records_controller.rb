@@ -6,7 +6,7 @@ class UserRecordsController < ApplicationController
    
     def list_user_records
         page = params[:page] || 1
-        query = UserRecord.page(page).per(10)
+        query = UserRecord.page(page).per(10).order(created_at: 'desc')
         return {user_records: query, total_page: query.total_pages, total_count: query.total_count, current_page: page}
     end 
 
