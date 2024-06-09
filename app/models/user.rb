@@ -24,11 +24,11 @@ class User < ApplicationRecord
     
     def update_redis_count(amount = 1)
         key = "#{self.gender}_users_count"
-        count = Rails.cache.fetch(key)
+        count = Rails.cache.fetch(key).to_i
         count += amount
         Rails.cache.write(key,count)
 
-        count = Rails.cache.fetch('total_users_count')
+        count = Rails.cache.fetch('total_users_count').to_i
         count += amount
         Rails.cache.write('total_users_count',count)
     end 
