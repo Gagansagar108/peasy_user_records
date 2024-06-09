@@ -20,7 +20,7 @@ class UsersController < ApplicationController
             user.destroy
         end 
 
-        index
+        redirect_to '/peasy'
     end 
 
     def list_user
