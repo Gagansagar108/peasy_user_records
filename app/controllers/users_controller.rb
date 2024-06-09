@@ -44,15 +44,8 @@ class UsersController < ApplicationController
     end
 
     def fetch_new_records
-        key = 'user_job_last_exectuted_at'
-
-        if Rails.cache.fetch(key)
-            render json: {"message": "pleae wait, still in queue"}
-            return 
-        end 
-
         CreateUserRecordsJob.perform_async()
-        index
+        redirect_to index
     end 
 
     def users_count
