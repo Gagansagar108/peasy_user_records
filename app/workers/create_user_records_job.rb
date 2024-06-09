@@ -1,6 +1,6 @@
 class CreateUserRecordsJob
     include Sidekiq::Worker
-    sidekiq_options queue: :default
+    sidekiq_options queue: :default, :retry => 0
   
     def perform(args = {})
       Rails.cache.write('user_job_last_exectuted_at', Time.zone.now.time, expires_in: 1.minutes)
