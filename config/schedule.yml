@@ -1,10 +1,10 @@
 create_user_records_job:
-  cron: "*/10 * * * *"
+  cron: "5 */1 * * *"
   class: "CreateUserRecordsJob"
   queue: default
   
 update_daily_user_records_stats_job:
-  cron: "0 * * * *"
+  cron: "45 23 * * *"
   class: "UpdateDailyUserRecordsStatsJob"
   queue: default
 
